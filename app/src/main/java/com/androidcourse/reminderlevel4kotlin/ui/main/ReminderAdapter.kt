@@ -1,10 +1,11 @@
-package com.androidcourse.reminderlevel4kotlin
+package com.androidcourse.reminderlevel4kotlin.ui.main
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.androidcourse.reminderlevel4kotlin.model.Reminder
 
 class ReminderAdapter(private val reminders: List<Reminder>) : RecyclerView.Adapter<ReminderAdapter.ViewHolder>() {
 
