@@ -112,7 +112,15 @@ class MainActivity : AppCompatActivity() {
         if (resultCode == Activity.RESULT_OK) {
             when (requestCode) {
                 ADD_REMINDER_REQUEST_CODE -> {
-                    getRemindersFromDatabase()
+                    val reminder = data!!.getParcelableExtra<Reminder>(AddActivity.EXTRA_REMINDER)
+
+                    CoroutineScope(Dispatchers.Main).launch {
+                        withContext(Dispatchers.IO) {
+                            reminderRepository.insertReminder(reminder)
+                        }
+                        getRemindersFromDatabase()
+                    }
+
                 }
             }
         }
